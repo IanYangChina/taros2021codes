@@ -1,0 +1,30 @@
+params = {
+    'hindsight': True,
+    'her_sampling_strategy': 'future',
+    'prioritised': False,
+    'memory_capacity': int(1e6),
+    'actor_learning_rate': 0.001,
+    'critic_learning_rate': 0.001,
+    'Q_weight_decay': 0.0,
+    'update_interval': 1,
+    'batch_size': 128,
+    'optimization_steps': 40,
+    'tau': 0.05,
+    'discount_factor': 0.98,
+    'clip_value': 50,
+    'discard_time_limit': True,
+    'terminate_on_achieve': False,
+    'observation_normalization': True,
+
+    'random_action_chance': 0.2,
+    'noise_deviation': 0.05,
+
+    'curriculum': False,
+
+    'training_epochs': 101,
+    'training_cycles': 50,
+    'training_episodes': 16,
+    'testing_gap': 1,
+    'testing_episodes': 30,
+    'saving_gap': 50,
+}

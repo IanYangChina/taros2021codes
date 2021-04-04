@@ -1,0 +1,5 @@
+# Default ignored files
+.idea
+__pycache__/
+multi_step_task/__pycache__/
+single_step_task/__pycache__/
