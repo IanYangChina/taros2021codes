@@ -1,7 +1,7 @@
 #### Scripts for our Taros 2021 paper titled ''Open-sourcing, Enhancing the Multi-goal Reinforcement Learning Environment for Complex Robotics Manipulation using Pybullet''
 
 This repo contains python and bash scripts to reproduce the experiment results proposed in our Taros 2021
-paper, titled **An Open-Source Multi-Goal Reinforcement Learning Environment for Robotic Manipulation with Pybullet**.
+paper, titled [**An Open-Source Multi-Goal Reinforcement Learning Environment for Robotic Manipulation with Pybullet**](https://arxiv.org/abs/2105.05985).
 
 #### Before running the scripts
 
