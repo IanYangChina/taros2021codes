@@ -1,4 +1,4 @@
-import time
+import timeit
 import gym
 import plot
 import numpy as np
@@ -14,11 +14,10 @@ num_episodes = 100
 for seed in seeds:
 
     # mujoco loop
-    start_mujoco = time.time()
-
     env_mujoco = gym.make("FetchReach-v1")
     env_mujoco.seed(seed)
 
+    start_mujoco = timeit.default_timer()
     for i in range(num_episodes):
         env_mujoco.reset()
         done_mujoco = False
@@ -26,17 +25,14 @@ for seed in seeds:
             action = env_mujoco.action_space.sample()
             _, _, done_mujoco, _ = env_mujoco.step(action)
 
-    cost = time.time() - start_mujoco
+    cost = timeit.default_timer() - start_mujoco
     costs_mujoco.append(cost/num_episodes)
     print("Seed {}, mujoco average runtime over 100 episodes: {}".format(seed, costs_mujoco[-1]))
 
     # pmg loop
-    start_pmg = time.time()
-
     env_pmg = pmg.make_env(task='reach',
                            gripper='parallel_jaw',
-                           joint_control=True,
-                           render=True,
+                           render=False,
                            binary_reward=True,
                            max_episode_steps=50,
                            image_observation=False,
@@ -44,6 +40,7 @@ for seed in seeds:
                            goal_image=False)
     env_pmg.seed(seed)
 
+    start_pmg = timeit.default_timer()
     for i in range(num_episodes):
         env_pmg.reset()
         done_pmg = False
@@ -51,7 +48,7 @@ for seed in seeds:
             action = env_pmg.action_space.sample()
             _, _, done_pmg, _ = env_pmg.step(action)
 
-    cost = time.time() - start_pmg
+    cost = timeit.default_timer() - start_pmg
     costs_pmg.append(cost/num_episodes)
     print("Seed {}, pmg average runtime over 100 episodes: {}".format(seed, costs_pmg[-1]))
 
