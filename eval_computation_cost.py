@@ -28,6 +28,7 @@ for seed in seeds:
 
     cost = time.time() - start_mujoco
     costs_mujoco.append(cost/num_episodes)
+    print("Seed {}, mujoco average runtime over 100 episodes: {}".format(seed, costs_mujoco[-1]))
 
     # pmg loop
     start_pmg = time.time()
@@ -52,6 +53,7 @@ for seed in seeds:
 
     cost = time.time() - start_pmg
     costs_pmg.append(cost/num_episodes)
+    print("Seed {}, pmg average runtime over 100 episodes: {}".format(seed, costs_pmg[-1]))
 
 mean_costs_mujoco = np.mean(costs_mujoco)
 std_costs_mujoco = np.std(costs_mujoco)
